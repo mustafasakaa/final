@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Sitesi</title>
+    <style>
+        body {
+            background-color: #8B4513; /* Açık kahverengi */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .top-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #444; /* Üst kısmın arkaplan rengi, ihtiyaca göre ayarla */
+        }
+
+        .bottom-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            background-color: #666; /* Alt kısmın arkaplan rengi, ihtiyaca göre ayarla */
+        }
+
+        .left-side {
+            text-align: left;
+            color: #fff; /* Beyaz renk */
+        }
+
+        .logo {
+            width: 300px; /* Logo genişliği */
+            height: auto;
+            margin-bottom: 20px; /* İhtiyaca göre ayarla */
+        }
+
+        .right-side {
+            text-align: right;
+            color: #fff; /* Beyaz renk */
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .contact-info img {
+            width: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .phone-number {
+            color: #fff; /* Telefon numarasının rengini ayarla */
+            margin-left: 20px; /* İhtiyaca göre ayarla */
+        }
+
+        .profile-info-container {
+            overflow: hidden;
+            width: 80%;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-top: 20px;
+            color: #fff; /* Beyaz renk */
+        }
+
+        .profile-image {
+            width: 40%; /* Profil resminin genişliği */
+            height: auto;
+            border-radius: 50%;
+            margin-right: 20px; /* İhtiyaca göre ayarla */
+        }
+
+        .profile-text {
+            width: 60%; /* Profil metni genişliği */
+            padding: 20px;
+            text-align: left; /* Metni sola hizala */
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .view-works-button {
+            background-color: #fff;
+            color: #8B4513;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .hover-text {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            visibility: hidden; /* Başlangıçta gizli olacak */
+            z-index: 1; /* Diğer elemanların üzerine gelecek */
+            opacity: 0; /* Başlangıçta saydam olacak */
+            transition: opacity 0.3s ease; /* Geçiş efekti ekleyelim */
+        }
+
+        /* Hover durumunda görünür hale getir */
+        .social-icons a:hover .hover-text {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-container">
+    <div class="left-side">
+        <img src="MSGSU.png" alt="Logo" class="logo">
+        <!-- Diğer içerikler buraya gelecek -->
+    </div>
+
+    <div class="right-side">
+        <div class="contact-info">
+            <a href="https://www.linkedin.com" target="_blank">
+                <img src="linkedin.png" alt="LinkedIn">
+            </a>
+            
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="instagram.png" alt="Instagram">
+            </a>
+
+            <span class="phone-number">Telefon: +90 123 456 7890</span>
+        </div>
+    </div>
+</div>
+
+<div class="bottom-container">
+    <div class="profile-info-container">
+        <img src="musti.jpeg" alt="Profil Resmi" class="profile-image">
+        <div class="profile-text">
+            <h1>Mustafa Saka</h1>
+            <p>Mimar Sinan Güzel Sanatlar Üniversitesi fahri öğrencisi</p>
+            <p>"Mimar Sinan Güzel Sanatlar Üniversitesinde Mimarlık 2. sınıf öğrencisiyim. 
+                Genel olarak eskiz yapmayı ve kitap okumayı seviyorum. 
+                Orta seviye Autocad ve temel seviye Sketchup ve Photoshop programlarının çizimlerini yapabiliyorum."
+            </p>
+            <a href="calısmalar.html" class="view-works-button">Çalışmalarımı Gör</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript fonksiyonları
+    function addHoverEffect(element, hoverText) {
+        element.addEventListener("mouseover", function() {
+            var textElement = document.createElement("div");
+            textElement.className = "hover-text";
+            textElement.textContent = hoverText;
+            element.appendChild(textElement);
+        });
+
+        element.addEventListener("mouseout", function() {
+            var textElement = element.querySelector(".hover-text");
+            if (textElement) {
+                textElement.remove();
+            }
+        });
+    }
+
+    var linkedinIcon = document.querySelector(".contact-info a[href='https://www.linkedin.com']");
+    addHoverEffect(linkedinIcon, "LinkedIn'i Ziyaret Et");
+
+    var instagramIcon = document.querySelector(".contact-info a[href='https://www.instagram.com']");
+    addHoverEffect(instagramIcon, "Instagram Profilimi İnceleyin");
+</script>
+
+</body>
+</html>
